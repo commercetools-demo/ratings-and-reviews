@@ -1,0 +1,14 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 commercetools GmbH and the ct-builders contributors
+# Freely available, AS IS and UNSUPPORTED. See LICENSE.
+
+query ReviewStates($acceptLanguage: [Locale!]) {
+  states(where: "type = \"ReviewState\"", limit: 50, sort: ["createdAt asc"]) {
+    results {
+      id
+      key
+      initial
+      name(acceptLanguage: $acceptLanguage)
+    }
+  }
+}

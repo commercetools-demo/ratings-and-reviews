@@ -1,0 +1,24 @@
+/*
+ * SPDX-License-Identifier: MIT
+ * Copyright (c) 2026 commercetools GmbH and the ct-builders contributors
+ * Freely available, AS IS and UNSUPPORTED. See LICENSE.
+ */
+
+/* Narrower cells than the DataTable's own 24 px, so the state badge, the date
+   and the headers fit the content area of a 1440 px window without clipping. */
+.comments-table .nimbus-data-table__cell,
+.comments-table .nimbus-data-table__column-container {
+  padding-inline: 12px;
+}
+
+.comments-table .nimbus-data-table__column {
+  padding-inline: 0;
+}
+
+/* A column header stays on one line: Nimbus lets the header text break
+   anywhere ("Rating" became "Ratin g"). */
+.comments-table .nimbus-data-table__header span[data-multiline-header],
+.comments-table .nimbus-data-table__header th {
+  white-space: nowrap;
+  word-break: normal;
+}

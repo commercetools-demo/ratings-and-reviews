@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 commercetools GmbH and the ct-builders contributors
+# Freely available, AS IS and UNSUPPORTED. See LICENSE.
+
+fragment CommentBase on Review {
+  id
+  version
+  title
+  text
+  rating
+  locale
+  authorName
+  includedInStatistics
+  createdAt
+  lastModifiedAt
+  target {
+    id
+    ... on Product {
+      masterData {
+        current {
+          name(acceptLanguage: $acceptLanguage)
+        }
+      }
+    }
+  }
+  state {
+    id
+    key
+    name(acceptLanguage: $acceptLanguage)
+    transitions {
+      id
+      key
+      name(acceptLanguage: $acceptLanguage)
+    }
+  }
+}

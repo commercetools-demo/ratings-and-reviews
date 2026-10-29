@@ -1,0 +1,20 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 commercetools GmbH and the ct-builders contributors
+# Freely available, AS IS and UNSUPPORTED. See LICENSE.
+
+#import "./fragments/comment-detail.graphql"
+
+mutation TransitionComment(
+  $id: String!
+  $version: Long!
+  $stateId: String!
+  $acceptLanguage: [Locale!]
+) {
+  updateReview(
+    id: $id
+    version: $version
+    actions: [{ transitionState: { state: { typeId: "state", id: $stateId } } }]
+  ) {
+    ...CommentDetail
+  }
+}
